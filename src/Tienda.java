@@ -31,7 +31,7 @@ public class Tienda {
             System.out.println("Por favor, indique el nombre del producto." );
             String nombreProducto = sc.nextLine();
             System.out.println("Por favor, indique el tipo del producto. (1) para papelería, (2) para supermercado, (3) para droguería" );
-            int comodin = sc.nextInt();
+            int tipo = sc.nextInt();
             
             
             //System.out.println("Por favor, indique el stock del producto.");
@@ -40,9 +40,12 @@ public class Tienda {
             //int cantidadMinima= sc.nextInt();
             System.out.println("Por favor, indique el precio base del producto.");
             double precioBase=sc.nextDouble();
-            //System.out.println("Por favor, indique el precio final del producto.");
-            //double precioFinal=sc.nextDouble();
-            arrProducto[i]= new Producto(i, nombreProducto, comodin, /*cantidadDisponible, cantidadMinima, */precioBase/*, precioFinal*/);            
+            
+            arrProducto[i]= new Producto(i, nombreProducto, tipo, /*cantidadDisponible, cantidadMinima, */precioBase/*, precioFinal*/);            
+        };
+        
+        for (int i = 0; i < 10; i++) {
+            arrProducto[i].determinarValorFinal(arrProducto[i].tipo);
         };
         
         for(int i=0; i<cantidadProductos; i+=1){
