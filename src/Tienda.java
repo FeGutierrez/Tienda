@@ -20,12 +20,14 @@ public class Tienda {
     
     
     //Métodos
+    
+        //System.out.println("Ingrese cantidad de productos a registrar.");        
+        int cantidadProductos = sc.nextInt();
+        Producto arrProducto[] = new  Producto[cantidadProductos];
+        //sc.nextLine();
       
     public void registrarProductosAStock(){
-        System.out.println("Ingrese cantidad de productos a registrar.");        
-        int cantidadProductos = sc.nextInt();
-        Producto arrProducto[] = new  Producto[1];
-        sc.nextLine();
+        
         
         for (int i=0; i<cantidadProductos; i+=1){
             System.out.println("Por favor, indique el nombre del producto." );
@@ -33,25 +35,29 @@ public class Tienda {
             System.out.println("Por favor, indique el tipo del producto. (1) para papelería, (2) para supermercado, (3) para droguería" );
             int tipo = sc.nextInt();
             
-            
-            //System.out.println("Por favor, indique el stock del producto.");
-            //int cantidadDisponible = sc.nextInt();
-            //System.out.println("Por favor, indique el stock minimo del producto.");
-            //int cantidadMinima= sc.nextInt();
             System.out.println("Por favor, indique el precio base del producto.");
-            double precioBase=sc.nextDouble();
-            
-            arrProducto[i]= new Producto(i, nombreProducto, tipo, /*cantidadDisponible, cantidadMinima, */precioBase/*, precioFinal*/);            
+            double precioBase=sc.nextDouble();            
+            arrProducto[i]= new Producto(i+1, nombreProducto, tipo, precioBase);            
         };
         
-        for (int i = 0; i < 10; i++) {
-            arrProducto[i].determinarValorFinal(arrProducto[i].tipo);
+        for (int i = 0; i < cantidadProductos; i++) {
+            arrProducto[i].determinarValorFinal(arrProducto[i].codigoTipo);
         };
+        
         
         for(int i=0; i<cantidadProductos; i+=1){
+            System.out.println("Producto (" + i+1 +")");
             arrProducto[i].descripcionProducto();
-        };   
+        }; 
     };
+    
+    public void definirTopeMinimo(){
+        System.out.println("Digite el ID del producto. ");
+        int x = sc.nextInt() - 1;
+        
+    }
+    
+    
     
     public void venderProductoACliente(Producto producto, int cantidad){
                 

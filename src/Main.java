@@ -14,6 +14,10 @@ public class Main {
         
         Tienda tienda = new Tienda();
         
+        Scanner sc= new Scanner(System.in);
+         int x = sc.nextInt() - 1;
+         System.out.println(x);
+        
         tienda.registrarProductosAStock();
         
         
